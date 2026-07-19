@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        // Need to ask user for the meal cost
+        const mealCost = parseFloat(prompt("Please enter the cost of the meal: "));
+        // Need to ask user for the tip percentage
+        const tipPercentage = parseFloat(prompt("Please enter the tip percentage: "));
+        // Need to calculate the tip amount
+        const tipAmount = mealCost * tipPercentage;
+        // Need to calculate the total amount
+        const totalAmount = mealCost + tipAmount;
+        // Need to display the tip amount and total amount to the user
+        console.log(mealCost);
+        console.log(tipPercentage);
+        
+        const displayAmount = totalAmount.toFixed(2);
+        alert(`The meal cost is $${mealCost}, the tip amount is $${tipAmount.toFixed(2)}, and the total amount is $${displayAmount}.`);
+    </script>
+</body>
+</html>
