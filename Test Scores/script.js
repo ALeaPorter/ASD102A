@@ -1,0 +1,38 @@
+// Have user input test scores
+const testScores = prompt("Please enter test scores separated by commas:")
+if (!testScores){    // Account for lack of input or invalid input
+    alert("No test scores entered.")
+}
+else {
+    const convertedScores = convertScores(testScores)
+    // Determine the max and min scores
+    const maxScore = Math.max(...convertedScores)
+    const minScore = Math.min(...convertedScores)
+
+    const averageScore = calculateAverage(convertedScores)
+
+    displayResults(convertedScores, minScore, maxScore, averageScore)
+}
+function convertScores(testScores){
+    const scores = testScores.split(",");  // Split scores into individual scores
+    const convertedScores = [];    // Convert scores into ints
+    for(let score of scores){
+        convertedScores.push(parseInt(score));
+    }
+    return convertedScores;
+}
+function calculateAverage(scores){
+    // Calculate average score
+    let total = 0;
+    for (let score of scores){
+        total += score;
+    }
+    const averageScore = total / scores.length;
+    return averageScore.toFixed(1);  // Return average rounded to 1 decimal just in case
+}
+function displayResults(scores, minScore, maxScore, averageScore){
+    // Display results
+    let resultMessage = `Scores: ${scores.join(", ")}\nLow score: ${minScore}\nHigh score: ${maxScore}\nAverage score: ${averageScore}`;
+    alert(resultMessage)
+}
+// Test with #s 89, 98, 73, 87, 96
